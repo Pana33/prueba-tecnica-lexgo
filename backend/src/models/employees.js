@@ -1,6 +1,8 @@
 const { mongoose } = require("./mongoose")
+const { Schema } = mongoose
+const strings = require("../strings")
 
-const employeeSchema = new mongoose.Schema(
+const employeeSchema = new Schema(
     {
         name:{
             type:String,
@@ -8,8 +10,8 @@ const employeeSchema = new mongoose.Schema(
             lowercase:true,
         },
         departmentId:{
-            type:mongoose.Types.ObjectId,
-            ref:"department",
+            type:Schema.Types.ObjectId,
+            ref:strings.DEPARTMENT_DB,
             required: true,
         }
     },
@@ -18,4 +20,4 @@ const employeeSchema = new mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model("employee",employeeSchema)
+module.exports = mongoose.model(strings.EMPLOYEE_DB,employeeSchema)

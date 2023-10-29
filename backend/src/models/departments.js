@@ -1,6 +1,8 @@
 const { mongoose } = require("./mongoose")
+const { Schema } = mongoose
+const strings = require("../strings")
 
-const departmentScheema = new mongoose.Schema(
+const departmentScheema = new Schema(
     {
         name:{
             type:String,
@@ -14,8 +16,8 @@ const departmentScheema = new mongoose.Schema(
             lowercase:true,
         },
         bossId:{
-            type:mongoose.Types.ObjectId,
-            ref:"employee"
+            type:Schema.Types.ObjectId,
+            ref:strings.EMPLOYEE_DB
         }
     },
     {
@@ -23,4 +25,4 @@ const departmentScheema = new mongoose.Schema(
     }
 )
 
-module.exports = mongoose.model("department",departmentScheema)
+module.exports = mongoose.model(strings.DEPARTMENT_DB,departmentScheema)

@@ -7,3 +7,7 @@ exports.getDepartments = (id) => {
         return Department.find()
     }
 }
+
+exports.createDepartments = (data) => {
+    return Department.create(data)
+}
