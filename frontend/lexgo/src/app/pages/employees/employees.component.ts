@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent {
-
+  columns:string[] = ["Nombre","Departamento","Rol","Acciones"]
+  keys:string[] = ["name","name","rol"]
+  employees!:[]
 }

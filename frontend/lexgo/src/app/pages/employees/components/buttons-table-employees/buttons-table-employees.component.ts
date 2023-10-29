@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IEmployees } from 'src/app/shared/models/i-employees';
 
 @Component({
   selector: 'app-buttons-table-employees',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./buttons-table-employees.component.scss']
 })
 export class ButtonsTableEmployeesComponent {
-
+  @Input() employee!:IEmployees
 }

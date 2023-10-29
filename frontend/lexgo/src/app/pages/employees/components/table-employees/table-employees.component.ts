@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IEmployees } from 'src/app/shared/models/i-employees';
 
 @Component({
   selector: 'app-table-employees',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./table-employees.component.scss']
 })
 export class TableEmployeesComponent {
-
+  @Input() columns!:string[]
+  @Input() keys!:string[]
+  @Input() employeesData!:IEmployees[]
 }

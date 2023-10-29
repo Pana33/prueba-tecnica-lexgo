@@ -1,1 +1,15 @@
-<p>table-employees works!</p>
+<table class="table text-center">
+    <thead class="sticky-top bg-white">
+        <tr>
+            <th *ngFor="let column of columns">{{column}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let employee of employeesData">
+            <td *ngFor="let key of keys">{{employee}}</td>
+            <td>
+                <app-buttons-table-employees [employee]="employee"></app-buttons-table-employees>
+            </td>
+        </tr>
+    </tbody>
+</table>
