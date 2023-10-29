@@ -6,7 +6,7 @@ exports.getEmployees = async (id) => {
     if(typeof id != "undefined"){
         let employeeSearched = await Employee.findById(id)
         let departmentSearched = await Department.findById(employeeSearched.departmentId)
-        const { bossName } = departmentSearched
+        const { bossName, bossId } = departmentSearched
         let nameDepartment = departmentSearched.name
         const { _id, name, departmentId, createdAt, updatedAt } = employeeSearched
         let employeeFinded = {
@@ -15,6 +15,7 @@ exports.getEmployees = async (id) => {
             departmentId,
             nameDepartment,
             bossName,
+            bossId,
             createdAt,
             updatedAt,
         }
@@ -24,7 +25,7 @@ exports.getEmployees = async (id) => {
         let employeesSearched = await Employee.find()
         for(let employeeToComplet of employeesSearched){
             let departmentSearched = await Department.findById(employeeToComplet.departmentId)
-            const { bossName } = departmentSearched
+            const { bossName, bossId } = departmentSearched
             let nameDepartment = departmentSearched.name
             const { _id, name, departmentId, createdAt, updatedAt } = employeeToComplet
             let employeeFinded = {
@@ -33,6 +34,7 @@ exports.getEmployees = async (id) => {
                 departmentId,
                 nameDepartment,
                 bossName,
+                bossId,
                 createdAt,
                 updatedAt,
             }
