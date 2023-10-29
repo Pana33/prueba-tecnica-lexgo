@@ -9,5 +9,5 @@ import { IEmployees } from 'src/app/shared/models/i-employees';
 export class TableEmployeesComponent {
   @Input() columns!:string[]
   @Input() keys!:string[]
-  @Input() employeesData!:IEmployees[]
+  @Input() employeesData!:any[]
 }

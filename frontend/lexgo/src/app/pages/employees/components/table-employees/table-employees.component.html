@@ -6,7 +6,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let employee of employeesData">
-            <td *ngFor="let key of keys">{{employee}}</td>
+            <ng-container *ngFor="let key of keys">
+                <td *ngIf="key != 'rol';else rolContent">{{employee[key]}}</td>
+                <ng-template #rolContent>
+                    <td>{{employee._id == employee.bossId?"Lider":"Empleado"}}</td>
+                </ng-template>
+            </ng-container>
             <td>
                 <app-buttons-table-employees [employee]="employee"></app-buttons-table-employees>
             </td>

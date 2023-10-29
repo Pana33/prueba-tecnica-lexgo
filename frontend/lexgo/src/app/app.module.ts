@@ -7,6 +7,8 @@ import { EmployeesComponent } from './pages/employees/employees.component';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { TableEmployeesComponent } from './pages/employees/components/table-employees/table-employees.component';
 import { ButtonsTableEmployeesComponent } from './pages/employees/components/buttons-table-employees/buttons-table-employees.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DatabaseService } from './services/database/database.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +21,11 @@ import { ButtonsTableEmployeesComponent } from './pages/employees/components/but
     BrowserModule,
     AppRoutingModule,
     NavbarModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    DatabaseService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
 export interface IEmployees {
+    _id: string,
     name: string,
     departmentId: string,
-    _id: string,
+    nameDepartment: string,
     createdAt: string,
     updatedAt: string,
-    __v: number
 }
