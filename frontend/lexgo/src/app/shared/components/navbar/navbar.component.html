@@ -1,12 +1,22 @@
 <div class="row">
     <div class="col-12 p-0">
-        <nav class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-sm bg-light">
             <div class="container-fluid">
-                <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
-                    <ul>
-                        <li><a [routerLink]="pathRoutes.EMPLOYEES">Empleados</a></li>
-                        <li><a [routerLink]="pathRoutes.DEPARTMENTS">Departamentos</a></li>
-                        <li><a [routerLink]="pathRoutes.ORGANIZATION_CHART">Organigrama</a></li>
+                <button class="btn btn-sm btn-outline-secondary d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <img src="../../../../assets/three-dots.svg" alt="navbar-toggle-icon">
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                    <p class="m-0 ps-2 fw-bold d-none d-sm-block">LEXGO</p>
+                    <ul class="navbar-nav">
+                        <li class="nav-item text-center">
+                            <a [routerLink]="pathRoutes.EMPLOYEES" class="nav-link">Empleados</a>
+                        </li>
+                        <li class="nav-item text-center">
+                            <a [routerLink]="pathRoutes.DEPARTMENTS" class="nav-link">Departamentos</a>
+                        </li>
+                        <li class="nav-item text-center">
+                            <a [routerLink]="pathRoutes.ORGANIZATION_CHART" class="nav-link">Organigrama</a>
+                        </li>
                     </ul>
                 </div>
             </div>
