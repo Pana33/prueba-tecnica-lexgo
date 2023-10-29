@@ -15,6 +15,7 @@ const departmentScheema = new mongoose.Schema(
         },
         bossId:{
             type:mongoose.Types.ObjectId,
+            ref:"employee"
         }
     },
     {
