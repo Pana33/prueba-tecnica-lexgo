@@ -13,6 +13,10 @@ export class ButtonsTableEmployeesComponent {
 
   constructor(private db:DatabaseService,private emitter:EmitterService){}
 
+  showDetailsEmployee(){
+    this.emitter.showDetails.emit(this.employee)
+  }
+
   sendEmpleadoToModal(){
     this.emitter.addOrEditEmployee.emit(this.employee)
   }

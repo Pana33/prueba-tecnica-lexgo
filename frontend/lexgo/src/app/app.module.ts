@@ -13,6 +13,7 @@ import { ShowModalFormModule } from './shared/components/show-modal-form/show-mo
 import { FormFilterModule } from './shared/components/form-filter/form-filter.module';
 import { ModalFormEmployeesComponent } from './pages/employees/components/modal-form-employees/modal-form-employees.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { OffcanvasDetailsEmployeeComponent } from './pages/employees/components/offcanvas-details-employee/offcanvas-details-employee.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TableEmployeesComponent,
     ButtonsTableEmployeesComponent,
     ModalFormEmployeesComponent,
+    OffcanvasDetailsEmployeeComponent,
   ],
   imports: [
     BrowserModule,

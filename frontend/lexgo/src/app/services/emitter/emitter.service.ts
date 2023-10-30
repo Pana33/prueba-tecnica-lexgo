@@ -10,5 +10,6 @@ export class EmitterService {
 
   @Output() modifyTableEmployees:EventEmitter<string> = new EventEmitter();
   @Output() addOrEditEmployee:EventEmitter<string | IEmployees> = new EventEmitter();
+  @Output() showDetails:EventEmitter<IEmployees> = new EventEmitter();
 
 }

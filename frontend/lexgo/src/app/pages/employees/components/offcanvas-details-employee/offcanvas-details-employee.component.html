@@ -1,0 +1,18 @@
+<div class="offcanvas offcanvas-end" tabindex="-1" id="detailsEmployee">
+    <div class="offcanvas-header">
+        <h4 class="offcanvas-title" id="offcanvasTopLabel">Detalles</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body text-center">
+        <p class="py-2 m-0 fw-semibold" *ngIf="employee?._id !== employee?.bossId">Lider:</p>
+        <p class="fst-italic" *ngIf="employee?._id !== employee?.bossId">{{employee?.bossName}}</p>
+        <p class="py-2 m-0 fw-semibold">Departamento:</p>
+        <p class="fst-italic">{{employee?.nameDepartment}}</p>
+        <p class="py-2 m-0 fw-semibold">Empresa:</p>
+        <p class="fst-italic">Lexgo</p>
+        <p class="py-2 m-0 fw-semibold" *ngIf="employee?._id === employee?.bossId">Empleados:</p>
+        <ng-container *ngIf="employee?._id === employee?.bossId">
+            <p class="fst-italic" *ngFor="let element of employesByDepartment">{{element?.name}}</p>
+        </ng-container>
+    </div>
+</div>

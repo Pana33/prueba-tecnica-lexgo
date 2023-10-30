@@ -8,8 +8,12 @@ export class DatabaseService {
   private UrlBackend = "http://localhost:8000/"
   constructor(private http:HttpClient) { }
 
-  getAllEmployees(){
-    return this.http.get(`${this.UrlBackend}employees`)
+  getAllEmployees(deparment?:string){
+    let query = `${this.UrlBackend}employees`
+    if(typeof deparment !== "undefined"){
+      query += `?department=${deparment}`
+    }
+    return this.http.get(query)
   }
 
   addEmployee(name:string,departmentId:string){
