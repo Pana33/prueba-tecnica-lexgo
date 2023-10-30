@@ -1,0 +1,30 @@
+<div class="modal fade" id="modalForm" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalForm">Agregar empleado</h1>
+            </div>
+            <form [formGroup]="formAddEmployee">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="nameEmployee" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="nameEmployee" formControlName="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="department" class="form-label">Departamento</label>
+                        <select class="form-select text-capitalize" id="department" formControlName="departmentId">
+                            <option [value]="department._id" *ngFor="let department of departments">{{department.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" *ngIf="!showSpinner" (click)="formAddEmployee.reset()">Cancelar</button>
+                <button type="button" class="btn btn-success" (click)="sendForm()" [disabled]="formAddEmployee.invalid" *ngIf="!showSpinner">Listo!</button>
+                <button type="button" class="btn btn-primary" disabled *ngIf="showSpinner">
+                    <span class="spinner-border spinner-border-sm" role="status"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

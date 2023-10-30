@@ -1,4 +1,4 @@
-export interface IEmployees {
+export interface IEmployees{
     _id: string,
     name: string,
     departmentId: string,

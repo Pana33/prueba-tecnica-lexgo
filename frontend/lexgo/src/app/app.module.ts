@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DatabaseService } from './services/database/database.service';
 import { ShowModalFormModule } from './shared/components/show-modal-form/show-modal-form.module';
 import { FormFilterModule } from './shared/components/form-filter/form-filter.module';
+import { ModalFormEmployeesComponent } from './pages/employees/components/modal-form-employees/modal-form-employees.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,15 @@ import { FormFilterModule } from './shared/components/form-filter/form-filter.mo
     EmployeesComponent,
     TableEmployeesComponent,
     ButtonsTableEmployeesComponent,
+    ModalFormEmployeesComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NavbarModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     ShowModalFormModule,
     FormFilterModule,
   ],

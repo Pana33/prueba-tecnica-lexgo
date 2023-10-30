@@ -12,8 +12,16 @@ export class DatabaseService {
     return this.http.get(`${this.UrlBackend}employees`)
   }
 
+  addEmployee(name:string,departmentId:string){
+    return this.http.post(`${this.UrlBackend}employee`,{name,departmentId})
+  }
+
   deleteEmployee(id:string){
     return this.http.delete(`${this.UrlBackend}employee/${id}`)
+  }
+
+  getAllDepartments(){
+    return this.http.get(`${this.UrlBackend}departments`)
   }
 
 }
