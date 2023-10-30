@@ -9,6 +9,8 @@ import { TableEmployeesComponent } from './pages/employees/components/table-empl
 import { ButtonsTableEmployeesComponent } from './pages/employees/components/buttons-table-employees/buttons-table-employees.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatabaseService } from './services/database/database.service';
+import { ShowModalFormModule } from './shared/components/show-modal-form/show-modal-form.module';
+import { FormFilterModule } from './shared/components/form-filter/form-filter.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { DatabaseService } from './services/database/database.service';
     AppRoutingModule,
     NavbarModule,
     HttpClientModule,
+    ShowModalFormModule,
+    FormFilterModule,
   ],
   providers: [
     DatabaseService,

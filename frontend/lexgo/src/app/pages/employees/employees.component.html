@@ -1,4 +1,8 @@
 <div class="row">
+    <div class="col-12 d-flex justify-content-around py-3 bg-light">
+        <app-form-filter [keys]="keysFilter" [nameKeys]="nameKeysFilter" (parameters)="filterData($event)"></app-form-filter>
+        <app-show-modal-form></app-show-modal-form>
+    </div>
     <div class="col-12">
         <app-table-employees [columns]="columns" [keys]="keys" [employeesData]="employees"></app-table-employees>
     </div>
