@@ -13,6 +13,10 @@ export class ButtonsTableEmployeesComponent {
 
   constructor(private db:DatabaseService,private emitter:EmitterService){}
 
+  sendEmpleadoToModal(){
+    this.emitter.addOrEditEmployee.emit(this.employee)
+  }
+
   deleteEmployee(){
     this.db.deleteEmployee(this.employee._id).subscribe(resDel=>{
       this.emitter.modifyTableEmployees.emit(this.employee._id)

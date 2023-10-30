@@ -2,7 +2,7 @@
     <button type="button" class="btn btn-sm btn-primary">
         <img src="../../../../../assets/eye.svg" alt="view-icon">
     </button>
-    <button type="button" class="btn btn-sm btn-warning">
+    <button type="button" class="btn btn-sm btn-warning" (click)="sendEmpleadoToModal()" data-bs-toggle="modal" data-bs-target="#modalForm">
         <img src="../../../../../assets/pencil.svg" alt="edit-icon">
     </button>
     <button type="button" class="btn btn-sm btn-danger" (click)="deleteEmployee()">

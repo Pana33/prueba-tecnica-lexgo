@@ -16,6 +16,10 @@ export class DatabaseService {
     return this.http.post(`${this.UrlBackend}employee`,{name,departmentId})
   }
 
+  editEmployee(id:string,name:string,departmentId:string){
+    return this.http.put(`${this.UrlBackend}employee/${id}`,{name,departmentId})
+  }
+
   deleteEmployee(id:string){
     return this.http.delete(`${this.UrlBackend}employee/${id}`)
   }

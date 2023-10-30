@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { take } from 'rxjs';
 import { DatabaseService } from 'src/app/services/database/database.service';
+import { EmitterService } from 'src/app/services/emitter/emitter.service';
 import { IDepartments } from 'src/app/shared/models/i-departments';
+import { IEmployees } from 'src/app/shared/models/i-employees';
 
 @Component({
   selector: 'app-modal-form-employees',
@@ -11,11 +13,13 @@ import { IDepartments } from 'src/app/shared/models/i-departments';
 })
 export class ModalFormEmployeesComponent implements OnInit{
 
-  constructor(private db:DatabaseService,private fb:FormBuilder){}
+  constructor(private db:DatabaseService,private fb:FormBuilder,private emitter:EmitterService){}
 
+  tittleModal:string = ""
   departments!:IDepartments[]
   formAddEmployee!:FormGroup
   showSpinner:boolean = false
+  employee:IEmployees | null = null
 
   ngOnInit(): void {
     this.db.getAllDepartments().pipe(take(1)).subscribe(resDep=>{
@@ -26,6 +30,18 @@ export class ModalFormEmployeesComponent implements OnInit{
       name:["",Validators.required],
       departmentId:["",Validators.required]
     })
+    this.emitter.addOrEditEmployee.subscribe(operation =>{
+      if(typeof operation === "string"){
+        this.tittleModal = "Agregar empleado"
+        this.employee = null
+        this.formAddEmployee.reset()
+      }else{
+        this.tittleModal = "Editar empleado"
+        this.employee = operation
+        this.formAddEmployee.patchValue({"name":operation.name})
+        this.formAddEmployee.patchValue({"departmentId":operation.departmentId})
+      }
+    })
   }
 
   sendForm(){
@@ -33,9 +49,15 @@ export class ModalFormEmployeesComponent implements OnInit{
       return
     }
     this.showSpinner = true
-    this.db.addEmployee(this.formAddEmployee.value.name,this.formAddEmployee.value.departmentId).pipe(take(1)).subscribe(resAdd=>{
-      this.showSpinner = false
-    })
+    if(this.employee === null){
+      this.db.addEmployee(this.formAddEmployee.value.name,this.formAddEmployee.value.departmentId).pipe(take(1)).subscribe(resAdd=>{
+        this.showSpinner = false
+      })
+    }else{
+      this.db.editEmployee(this.employee._id,this.formAddEmployee.value.name,this.formAddEmployee.value.departmentId).pipe(take(1)).subscribe(resEdit=>{
+        this.showSpinner = false
+      })
+    }
   }
 
 }

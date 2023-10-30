@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { EmitterService } from 'src/app/services/emitter/emitter.service';
 
 @Component({
   selector: 'app-show-modal-form',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ShowModalFormComponent {
 
+  constructor(private emitter:EmitterService){}
+
+  sendModalRequired(){
+    this.emitter.addOrEditEmployee.emit("add")
+  }
 }
