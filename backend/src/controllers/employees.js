@@ -2,7 +2,8 @@ const { getEmployees, addEmployee, updtEmployee, dltEmployee } = require("../ser
 
 exports.getEmployee = async (request, response) => {
     const { id } = request.params
-    const employee = await getEmployees(id)
+    const { department } = request.query
+    const employee = await getEmployees(id,department)
     response.status(200).json(employee)
 }
 

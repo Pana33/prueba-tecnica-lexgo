@@ -2,7 +2,7 @@ const Employee = require("../models/employees")
 const Department = require("../models/departments")
 const strings = require("../strings")
 
-exports.getEmployees = async (id) => {
+exports.getEmployees = async (id,department) => {
     if(typeof id != "undefined"){
         let employeeSearched = await Employee.findById(id)
         let departmentSearched = await Department.findById(employeeSearched.departmentId)
@@ -22,7 +22,16 @@ exports.getEmployees = async (id) => {
         return employeeFinded
     }else{
         let employeesList = []
-        let employeesSearched = await Employee.find()
+        let employeesSearched
+        if(typeof department === "undefined"){
+            employeesSearched = await Employee.find()
+        }else{
+            try{
+                employeesSearched = await Employee.find({departmentId:department})
+            }catch{
+                return employeesList
+            }
+        }
         for(let employeeToComplet of employeesSearched){
             let departmentSearched = await Department.findById(employeeToComplet.departmentId)
             const { bossName, bossId } = departmentSearched
