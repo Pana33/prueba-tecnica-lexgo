@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database/database.service';
+import { EmitterService } from 'src/app/services/emitter/emitter.service';
 import { IEmployees } from 'src/app/shared/models/i-employees';
 
 @Component({
@@ -10,11 +11,11 @@ import { IEmployees } from 'src/app/shared/models/i-employees';
 export class ButtonsTableEmployeesComponent {
   @Input() employee!:IEmployees
 
-  constructor(private db:DatabaseService){}
+  constructor(private db:DatabaseService,private emitter:EmitterService){}
 
   deleteEmployee(){
     this.db.deleteEmployee(this.employee._id).subscribe(resDel=>{
-      console.log("eliminado")
+      this.emitter.modifyTableEmployees.emit(this.employee._id)
     })
   }
 
