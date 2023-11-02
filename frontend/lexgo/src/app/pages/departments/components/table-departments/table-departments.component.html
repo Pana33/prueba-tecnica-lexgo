@@ -1,1 +1,20 @@
-<p>table-departments works!</p>
+<table class="table text-center">
+    <thead class="sticky-top bg-white">
+        <tr>
+            <th *ngFor="let column of columns">{{column}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let department of departmentsData">
+            <ng-container *ngFor="let key of keys">
+                <td *ngIf="key != 'rol';else rolContent">{{department[key]}}</td>
+                <ng-template #rolContent>
+                    <td>{{department._id == department.bossId?"Lider":"Empleado"}}</td>
+                </ng-template>
+            </ng-container>
+            <td>
+                <app-buttons-table-departments [department]="department"></app-buttons-table-departments>
+            </td>
+        </tr>
+    </tbody>
+</table>

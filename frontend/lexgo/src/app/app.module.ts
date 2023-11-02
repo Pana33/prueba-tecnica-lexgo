@@ -10,7 +10,6 @@ import { ButtonsTableEmployeesComponent } from './pages/employees/components/but
 import { HttpClientModule } from '@angular/common/http';
 import { DatabaseService } from './services/database/database.service';
 import { FormFilterModule } from './shared/components/form-filter/form-filter.module';
-import { ModalFormEmployeesComponent } from './pages/employees/components/modal-form-employees/modal-form-employees.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OffcanvasDetailsEmployeeComponent } from './pages/employees/components/offcanvas-details-employee/offcanvas-details-employee.component';
 import { ButtonAddFormModule } from './shared/components/button-add-form/button-add-form.module';
@@ -21,7 +20,6 @@ import { ButtonAddFormModule } from './shared/components/button-add-form/button-
     EmployeesComponent,
     TableEmployeesComponent,
     ButtonsTableEmployeesComponent,
-    ModalFormEmployeesComponent,
     OffcanvasDetailsEmployeeComponent,
   ],
   imports: [

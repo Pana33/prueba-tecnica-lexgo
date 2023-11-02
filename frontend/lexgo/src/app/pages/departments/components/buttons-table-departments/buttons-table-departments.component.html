@@ -1,1 +1,11 @@
-<p>buttons-table-departments works!</p>
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-sm btn-primary" (click)="showDetailsEmployee()" data-bs-toggle="offcanvas" data-bs-target="#detailsEmployee">
+        <img src="../../../../../assets/eye.svg" alt="view-icon">
+    </button>
+    <button type="button" class="btn btn-sm btn-warning" [routerLink]="['/',pages.ADD_OR_EDIT_EMPLOYEE,department._id]">
+        <img src="../../../../../assets/pencil.svg" alt="edit-icon">
+    </button>
+    <button type="button" class="btn btn-sm btn-danger" (click)="deleteDepartment()">
+        <img src="../../../../../assets/trash.svg" alt="delete-icon">
+    </button>
+</div>

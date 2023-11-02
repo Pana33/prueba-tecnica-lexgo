@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-table-departments',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./table-departments.component.scss']
 })
 export class TableDepartmentsComponent {
-
+  @Input() columns!:string[]
+  @Input() keys!:string[]
+  @Input() departmentsData!:any[]
 }

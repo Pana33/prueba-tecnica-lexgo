@@ -14,7 +14,7 @@
                     </select>
                 </div>
             </form>
-            <button type="button" class="btn btn-danger" *ngIf="!showSpinner" [routerLink]="['/',]">Cancelar</button>
+            <button type="button" class="btn btn-danger" *ngIf="!showSpinner" [routerLink]="['/']">Cancelar</button>
             <button type="button" class="btn btn-success" (click)="sendForm()" [disabled]="formAddEmployee.invalid" *ngIf="!showSpinner">Listo!</button>
             <button type="button" class="btn btn-primary" disabled *ngIf="showSpinner">
                 <span class="spinner-border spinner-border-sm" role="status"></span>
