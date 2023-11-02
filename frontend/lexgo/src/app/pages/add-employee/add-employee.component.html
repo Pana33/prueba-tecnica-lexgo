@@ -1,0 +1,24 @@
+<div class="row justify-content-center">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4 py-3">
+        <div class="card card-body gap-3">
+            <div class="card-tittle fw-bold text-center">{{tittleModal}}</div>
+            <form [formGroup]="formAddEmployee">
+                <div class="mb-3">
+                    <label for="nameEmployee" class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="nameEmployee" formControlName="name">
+                </div>
+                <div class="mb-3">
+                    <label for="department" class="form-label">Departamento</label>
+                    <select class="form-select text-capitalize" id="department" formControlName="departmentId">
+                        <option [value]="department._id" *ngFor="let department of departments">{{department.name}}</option>
+                    </select>
+                </div>
+            </form>
+            <button type="button" class="btn btn-danger" *ngIf="!showSpinner" [routerLink]="['/',]">Cancelar</button>
+            <button type="button" class="btn btn-success" (click)="sendForm()" [disabled]="formAddEmployee.invalid" *ngIf="!showSpinner">Listo!</button>
+            <button type="button" class="btn btn-primary" disabled *ngIf="showSpinner">
+                <span class="spinner-border spinner-border-sm" role="status"></span>
+            </button>
+        </div>
+    </div>
+</div>

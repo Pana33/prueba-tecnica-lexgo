@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { EPathRoutes } from 'src/app/shared/models/e-path-routes';
+import { IEmployees } from 'src/app/shared/models/i-employees';
+import { IDepartments } from 'src/app/shared/models/i-departments';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +33,16 @@ export class DatabaseService {
 
   getAllDepartments(){
     return this.http.get(`${this.UrlBackend}departments`)
+  }
+
+  getOneDocument(typeDocument:string,id:string){
+    let url = ""
+    if(typeDocument === EPathRoutes.DEPARTMENTS){
+      url = `${this.UrlBackend}departments`
+    }else{
+      url = `${this.UrlBackend}employees/${id}`
+    }
+    return this.http.get(url)
   }
 
 }
