@@ -30,18 +30,6 @@ export class ModalFormEmployeesComponent implements OnInit{
       name:["",Validators.required],
       departmentId:["",Validators.required]
     })
-    this.emitter.addOrEditEmployee.subscribe(operation =>{
-      if(typeof operation === "string"){
-        this.tittleModal = "Agregar empleado"
-        this.employee = null
-        this.formAddEmployee.reset()
-      }else{
-        this.tittleModal = "Editar empleado"
-        this.employee = operation
-        this.formAddEmployee.patchValue({"name":operation.name})
-        this.formAddEmployee.patchValue({"departmentId":operation.departmentId})
-      }
-    })
   }
 
   sendForm(){

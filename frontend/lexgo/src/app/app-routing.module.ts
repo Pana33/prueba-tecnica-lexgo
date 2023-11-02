@@ -14,6 +14,9 @@ const routes: Routes = [
     path: EPathRoutes.ORGANIZATION_CHART, loadChildren: () => import("./pages/organization-chart/module/organization-chart-routing.module").then(m => m.OrganizationChartRoutingModule)
   },
   {
+    path: `${EPathRoutes.ADD_OR_EDIT_PAGE}/:typeDocument/:action`, loadChildren: () => import("./pages/add/module/add.module").then(m => m.AddModule)
+  },
+  {
     path: '**', redirectTo: EPathRoutes.EMPLOYEES, pathMatch: 'full',
   }
 ];

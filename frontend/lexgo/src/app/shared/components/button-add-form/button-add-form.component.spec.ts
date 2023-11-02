@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ShowModalFormComponent } from './show-modal-form.component';
+import { ButtonAddFormComponent } from './button-add-form.component';
 
-describe('ShowModalFormComponent', () => {
-  let component: ShowModalFormComponent;
-  let fixture: ComponentFixture<ShowModalFormComponent>;
+describe('ButtonAddFormComponent', () => {
+  let component: ButtonAddFormComponent;
+  let fixture: ComponentFixture<ButtonAddFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShowModalFormComponent ]
+      declarations: [ ButtonAddFormComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ShowModalFormComponent);
+    fixture = TestBed.createComponent(ButtonAddFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

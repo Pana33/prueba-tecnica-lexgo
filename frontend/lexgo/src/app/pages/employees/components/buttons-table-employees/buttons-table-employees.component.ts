@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { DatabaseService } from 'src/app/services/database/database.service';
 import { EmitterService } from 'src/app/services/emitter/emitter.service';
+import { EPathRoutes } from 'src/app/shared/models/e-path-routes';
 import { IEmployees } from 'src/app/shared/models/i-employees';
 
 @Component({
@@ -11,14 +12,12 @@ import { IEmployees } from 'src/app/shared/models/i-employees';
 export class ButtonsTableEmployeesComponent {
   @Input() employee!:IEmployees
 
+  readonly pages = EPathRoutes
+
   constructor(private db:DatabaseService,private emitter:EmitterService){}
 
   showDetailsEmployee(){
     this.emitter.showDetails.emit(this.employee)
-  }
-
-  sendEmpleadoToModal(){
-    this.emitter.addOrEditEmployee.emit(this.employee)
   }
 
   deleteEmployee(){
