@@ -12,7 +12,11 @@ export class ButtonAddFormComponent {
   constructor(private router:Router){}
 
   navigateToAddOrEditPage(){
-    this.router.navigate([EPathRoutes.ADD_OR_EDIT_PAGE,this.router.url.slice(1),"add"])
+    if(this.router.url.slice(1) === EPathRoutes.EMPLOYEES){
+      this.router.navigate([EPathRoutes.ADD_OR_EDIT_EMPLOYEE,"add"])
+    }else if(this.router.url.slice(1) === EPathRoutes.DEPARTMENTS){
+      this.router.navigate([EPathRoutes.ADD_OR_EDIT_DEPARTMENT,"add"])
+    }
   }
 
 }

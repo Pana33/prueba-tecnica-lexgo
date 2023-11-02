@@ -37,9 +37,9 @@ export class DatabaseService {
 
   getOneDocument(typeDocument:string,id:string){
     let url = ""
-    if(typeDocument === EPathRoutes.DEPARTMENTS){
+    if(typeDocument === EPathRoutes.ADD_OR_EDIT_DEPARTMENT){
       url = `${this.UrlBackend}departments`
-    }else{
+    }else if(typeDocument === EPathRoutes.ADD_OR_EDIT_EMPLOYEE){
       url = `${this.UrlBackend}employees/${id}`
     }
     return this.http.get(url)

@@ -17,7 +17,6 @@ export class AddEmployeeComponent  implements OnInit{
   constructor(private db:DatabaseService,private fb:FormBuilder,private activeRoute:ActivatedRoute,private router:Router){}
 
   tittleModal:string = ""
-  typeDocument:string = ""
   action:string = ""
   departments!:IDepartments[]
   formAddEmployee!:FormGroup
@@ -36,12 +35,11 @@ export class AddEmployeeComponent  implements OnInit{
   }
 
   setGlobalVariables(){
-    this.typeDocument = this.activeRoute.snapshot.params["typeDocument"]
     this.action = this.activeRoute.snapshot.params["action"]
     if(this.action === "add"){
       this.tittleModal = "Agregar registro"
     }else{
-      this.findAndSetDocument(this.typeDocument,this.action)
+      this.findAndSetDocument(this.router.url.split("/")[1],this.action)
       this.tittleModal = "Editar registro"
     }
   }
@@ -61,11 +59,11 @@ export class AddEmployeeComponent  implements OnInit{
     this.showSpinner = true
     if(this.employee === null){
       this.db.addEmployee(this.formAddEmployee.value.name,this.formAddEmployee.value.departmentId).pipe(take(1)).subscribe(resAdd=>{
-        this.router.navigate([this.typeDocument])
+        this.router.navigate([EPathRoutes.EMPLOYEES])
       })
     }else{
       this.db.editEmployee(this.employee._id,this.formAddEmployee.value.name,this.formAddEmployee.value.departmentId).pipe(take(1)).subscribe(resEdit=>{
-        this.router.navigate([this.typeDocument])
+        this.router.navigate([EPathRoutes.EMPLOYEES])
       })
     }
   }
