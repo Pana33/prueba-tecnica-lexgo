@@ -7,10 +7,7 @@
     <tbody>
         <tr *ngFor="let department of departmentsData">
             <ng-container *ngFor="let key of keys">
-                <td *ngIf="key != 'rol';else rolContent">{{department[key]}}</td>
-                <ng-template #rolContent>
-                    <td>{{department._id == department.bossId?"Lider":"Empleado"}}</td>
-                </ng-template>
+                <td>{{department[key]}}</td>
             </ng-container>
             <td>
                 <app-buttons-table-departments [department]="department"></app-buttons-table-departments>

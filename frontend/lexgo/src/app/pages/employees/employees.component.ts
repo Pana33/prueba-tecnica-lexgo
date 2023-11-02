@@ -23,7 +23,6 @@ export class EmployeesComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.db.getAllEmployees().pipe(take(1)).subscribe(resEmp=>{
-      console.log(resEmp)
       this.employees = resEmp as IEmployees[]
       this.employeesComplet = resEmp as IEmployees[]
     })

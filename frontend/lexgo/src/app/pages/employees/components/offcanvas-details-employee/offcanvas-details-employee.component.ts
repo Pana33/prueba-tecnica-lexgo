@@ -20,10 +20,10 @@ export class OffcanvasDetailsEmployeeComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.emitter.showDetails.subscribe((employee:IEmployees)=>{
       this.employee = employee
+      this.employesByDepartment = []
       if(employee._id === employee.bossId){
         this.db.getAllEmployees(employee.departmentId).pipe(take(1)).subscribe(resEmps=>{
           this.employesByDepartment = resEmps as IEmployees[]
-          console.log(resEmps)
         })
       }else{
         this.employesByDepartment = null

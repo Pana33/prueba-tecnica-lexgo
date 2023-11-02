@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-12 d-flex justify-content-around py-3 bg-light">
         <app-form-filter [keys]="keys" [nameKeys]="columns" (parameters)="filterData($event)"></app-form-filter>
-        <app-button-add-form></app-button-add-form>
     </div>
     <div class="col-12">
         <app-table-departments [columns]="columns" [keys]="keys" [departmentsData]="departments"></app-table-departments>
     </div>
 </div>
+<app-offcanvas-details-department></app-offcanvas-details-department>

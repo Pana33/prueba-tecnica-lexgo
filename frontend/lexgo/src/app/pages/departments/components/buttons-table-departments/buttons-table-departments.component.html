@@ -1,11 +1,11 @@
 <div class="btn-group" role="group">
-    <button type="button" class="btn btn-sm btn-primary" (click)="showDetailsEmployee()" data-bs-toggle="offcanvas" data-bs-target="#detailsEmployee">
+    <button type="button" class="btn btn-sm btn-primary" (click)="showDetailsEmployee()" data-bs-toggle="offcanvas" data-bs-target="#detailsDepartment">
         <img src="../../../../../assets/eye.svg" alt="view-icon">
     </button>
-    <button type="button" class="btn btn-sm btn-warning" [routerLink]="['/',pages.ADD_OR_EDIT_EMPLOYEE,department._id]">
+    <button type="button" class="btn btn-sm btn-warning" [routerLink]="['/',pages.ADD_OR_EDIT_DEPARTMENT,department._id]">
         <img src="../../../../../assets/pencil.svg" alt="edit-icon">
     </button>
-    <button type="button" class="btn btn-sm btn-danger" (click)="deleteDepartment()">
+    <!-- <button type="button" class="btn btn-sm btn-danger" (click)="deleteDepartment()">
         <img src="../../../../../assets/trash.svg" alt="delete-icon">
-    </button>
+    </button> -->
 </div>

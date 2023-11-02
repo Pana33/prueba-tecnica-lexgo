@@ -21,7 +21,6 @@ export class DepartmentsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.db.getAllDepartments().pipe(take(1)).subscribe(resEmp=>{
-      console.log(resEmp)
       this.departments = resEmp as IDepartments[]
       this.departmentsComplet = resEmp as IDepartments[]
     })
