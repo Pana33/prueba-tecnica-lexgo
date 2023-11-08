@@ -17,7 +17,8 @@ const departmentScheema = new Schema(
         },
         bossId:{
             type:Schema.Types.ObjectId,
-            ref:strings.EMPLOYEE_DB
+            ref:strings.EMPLOYEE_DB,
+            required: false,
         }
     },
     {

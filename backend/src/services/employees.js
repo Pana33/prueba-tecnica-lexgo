@@ -1,6 +1,5 @@
 const Employee = require("../models/employees")
 const Department = require("../models/departments")
-const strings = require("../strings")
 
 exports.getEmployees = async (id,department) => {
     if(typeof id != "undefined"){
